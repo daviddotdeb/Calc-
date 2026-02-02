@@ -44,22 +44,21 @@ void isFactorial()
 	std::cout << "=\n" << aux << std::endl;
 }
 
-int main()
+void calculator()
 {
-	double n1, n2;
+    double n1, n2;
 	int decision;
 	std::string op;
 
 	std::cout << "\nWelcome to Calc++\n\n";
-	
 
 	std::cout << "How much numbers do you want?: \n1 - Just One\n2 - Two\n";
 	std::cin >> decision;
 
-	switch(decision)
+    switch(decision)
 	{
-		case 1:
-			do //case chose 1 do it	
+        case 1:
+            do //case chose 1 do it	
 			{
 				std::cout << "Operator(!, p(Even or Odd): ";
 				std::cin >> op;
@@ -129,5 +128,10 @@ int main()
 
 	std::cout << "\nCalc++ Terminated!\n";
 
+}
+
+int main()
+{
+    calculator();
 	return 0;
 }
