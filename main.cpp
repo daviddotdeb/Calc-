@@ -2,10 +2,52 @@
 #include <string>
 #include <cmath>
 
+int question()
+{
+	int quest;
+	std::cout << "\nMake Another Calc?\n";
+	std::cout << "1 - Yes\n";
+	std::cout << "2 - No\n";
+	std::cin >> quest;
+	
+	return quest;
+}
+int isEven_OR_Odd()
+{
+	int twin_num;
+	std::cout << "Write a number: ";
+	std::cin >> twin_num;
+	
+	if(twin_num % 2 == 0)
+	{
+		return 0;
+	}
+	else
+	{
+		return 1;
+	}
+}
+void isFactorial()
+{
+	int facn, aux = 1;
+	std::cout << "Write a Number: ";
+	std::cin >> facn;
+	
+	std::cout << facn << "!\n";
+	
+	for(int c = 1; c <= facn; facn--)
+	{
+		std::cout << facn << std::endl;
+		aux *= facn;
+	}
+	
+	std::cout << "=\n" << aux << std::endl;
+}
+
 int main()
 {
 	double n1, n2;
-	int ques, decision, foraux, multi = 1;
+	int decision;
 	std::string op;
 
 	std::cout << "\nWelcome to Calc++\n\n";
@@ -17,37 +59,32 @@ int main()
 	switch(decision)
 	{
 		case 1:
-			do //case chose 1 do it
+			do //case chose 1 do it	
 			{
-				std::cout << "Your Number: ";
-				std::cin >> n1;
-
-				std::cout << "Operator(!): ";
+				std::cout << "Operator(!, p(Even or Odd): ";
 				std::cin >> op;
+				
 
 				if (op == "!")
 				{
-					n2 = n1;
-					std::cout << n2 << "!" << std::endl; //here i am simuling x! = x.x.x.x... = x
-					for(foraux = 1; foraux <= n1; n1--)
+					isFactorial();
+				}
+				else if(op == "p" || op == "P")
+				{
+					if(isEven_OR_Odd() == 0)
 					{
-						std::cout << n2 << std::endl;
-						multi *= n2;
-						n2--;
+						std::cout << "Your number is an Even Number\n";
 					}
-					std::cout << "=\n" << multi << std::endl;
+					else
+					{
+						std::cout << "Your Number is an Odd Number\n";
+					}
 				}
 				else
 				{
 					std::cout << "\nIncorrect Operator\n\n";
 				}
-
-				std::cout << "\nMake Another Calc?\n";
-				std::cout << "1 - Yes\n";
-				std::cout << "2 - No\n";
-				std::cin >> ques;
-
-			}while (ques != 2);
+			}while (question() == 1);
 			break;
 
 		case 2: //here we use two numbers and a diversity of operators
@@ -86,13 +123,7 @@ int main()
 				{
 					std::cout << "\n\nIncorrect Operator\n\n";
 				}
-
-				std::cout << "\nMake another calc?\n"; //i want to go to the start of the code and chose the quatity of numbers i will think more about it
-				std::cout << "1 - Yes\n";
-				std::cout << "2 - No\n";
-				std::cin >> ques;
-
-			}while (ques != 2);
+			}while (question() == 1);
 			break;
 	}
 
