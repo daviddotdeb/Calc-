@@ -2,6 +2,37 @@
 #include <string>
 #include <cmath>
 
+void isTwin()
+{
+    int twinum; 
+    bool twin = true;
+    std::cout << "Write a number: ";
+    std::cin >> twinum;
+
+    if(twinum <= 1)
+    {
+        twin = false;
+    }
+    
+    for(int i = 2; i < twinum; i++)
+    {
+        if(twinum % i == 0)
+        {
+            twin = false;
+            break;
+        }
+    }
+
+    if(twin)
+    {
+        std::cout << twinum << " is a twin number\n";
+    }
+    else
+    {
+        std::cout << twinum << " is not a twin number\n";
+    }
+}
+
 int question()
 {
 	int quest;
@@ -60,7 +91,7 @@ void calculator()
         case 1:
             do //case chose 1 do it	
 			{
-				std::cout << "Operator(!, p(Even or Odd): ";
+				std::cout << "Operator(!, p(Even or Odd), t(Twin): ";
 				std::cin >> op;
 				
 
@@ -79,6 +110,10 @@ void calculator()
 						std::cout << "Your Number is an Odd Number\n";
 					}
 				}
+                else if(op == "t" || op == "T")
+                {
+                    isTwin();
+                }
 				else
 				{
 					std::cout << "\nIncorrect Operator\n\n";
