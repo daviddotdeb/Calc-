@@ -35,7 +35,7 @@ void isTwin()
 
 int question()
 {
-	int quest;
+    int quest;
 	std::cout << "\nMake Another Calc?\n";
 	std::cout << "1 - Yes\n";
 	std::cout << "2 - No\n";
@@ -60,19 +60,46 @@ int isEven_OR_Odd()
 }
 void isFactorial()
 {
-	int facn, aux = 1;
+	long long aux = 1, facn;
 	std::cout << "Write a Number: ";
 	std::cin >> facn;
 	
 	std::cout << facn << "!\n";
 	
-	for(int c = 1; c <= facn; facn--)
+	for(int i = facn; i > 0; i--)
 	{
-		std::cout << facn << std::endl;
-		aux *= facn;
+		std::cout << i << std::endl;
+		aux *= i;
 	}
 	
 	std::cout << "=\n" << aux << std::endl;
+}
+
+void perfect()
+{
+    int num, i, sum = 0;
+    std::cout << "Write a number: ";
+    std::cin >> num;
+
+    for(i = 1; i < num; i++)
+    {
+        if(num % i == 0)
+        {
+            sum += i;
+        }
+    }
+
+    if(sum == num)
+    {
+        std::cout << "\n\nYour Number is: " << num << std::endl;
+        std::cout << "The sum of the divisors is: " << sum << std::endl;
+        std::cout << num << " is a perfect number!\n\n";
+    }
+    else
+    {
+        std::cout << num << " is not a perfect number!\n\n";
+    }
+
 }
 
 void calculator()
@@ -91,7 +118,7 @@ void calculator()
         case 1:
             do //case chose 1 do it	
 			{
-				std::cout << "Operator(!, p(Even or Odd), t(Twin): ";
+				std::cout << "Operator(!, p(Even or Odd), t(Twin), c(perfect): ";
 				std::cin >> op;
 				
 
@@ -113,6 +140,10 @@ void calculator()
                 else if(op == "t" || op == "T")
                 {
                     isTwin();
+                }
+                else if(op == "c" || op == "C")
+                {
+                    perfect();
                 }
 				else
 				{
